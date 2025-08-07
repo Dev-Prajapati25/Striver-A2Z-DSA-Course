@@ -273,15 +273,116 @@ void pattern19(int n){
     }
 }
 
+void pattern20(int n){
+
+
+    // Upper half
+    int upper_spaces = 2*n - 2;
+    for (int i = 0; i < n; i++){
+
+        // Stars
+        for (int j = 0; j < i+1; j++){
+            cout << "*";
+        }
+
+        // Spaces
+        for (int blank = 0; blank < upper_spaces; blank++){
+            cout << " ";
+        }
+
+        for (int j = 0; j < i+1; j++){
+            cout << "*";
+        }
+        cout << endl;
+        upper_spaces -= 2;
+    }
+
+    // Lower Half
+    int lower_spaces = 2;
+    for (int i = 0; i < n-1 ; i++){
+        
+        // Stars
+        for (int j = 0; j < n - 1 - i; j++){
+            cout << "*";
+        }
+
+        // Spaces
+        for (int blank = 0; blank < lower_spaces; blank++){
+            cout << " ";
+        }
+
+        // Stars
+        for (int j = 0; j < n - 1 - i; j++){
+            cout << "*";
+        }
+        cout << endl;
+        lower_spaces += 2;
+    }
+}
+
+void pattern20_striver(int n){ // Revise
+    int spaces = 2*n -2;
+    
+    for (int i = 0; i < 2*n; i++){
+        int stars = i;
+        if (i > n) stars = 2*n - i;     //NOTE
+
+        for (int j = 0; j <= stars; j++){
+            cout << "*";
+        }
+
+        for (int blank = 0; blank <= spaces; blank++){
+            cout << " ";
+        }
+
+        for (int j = 0; j <= stars; j++){
+            cout << "*";
+        }
+
+        cout << endl;
+        if (i < n) spaces -= 2;
+        else spaces += 2;
+    }
+}
+
+void pattern21(int n){
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            if (((i == 0) || (i == n-1)) || ((j == 0) || (j == n-1))){
+                cout << "*";
+            }
+            else{
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void pattern22(int n){
+    int size = (2 * n) - 1;
+    for (int i = 0; i < size; i++){
+        for (int j = 0; j < size; j++){
+            
+            int top = i; 
+            int bottom = (2*n - 2) - i;  
+            int left = j;
+            int right = (2*n - 2) - j;
+
+            cout << n - min( min(top,bottom), min(left,right)) << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main(){
     int t, n;
     cin >> t;
     for(int i = 0; i < t; i++){
         int n;
         cin >> n;
-        pattern19(n);
+        pattern22(n);
         cout << endl;
     }
-
     return 0;
 }
