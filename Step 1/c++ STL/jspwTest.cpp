@@ -118,15 +118,7 @@ void deletion(){
     vec2.insert(vec2.begin(), copy.begin(), copy.end()); // {55, 55, 34, 99, 200, 34} 
 
     //*Some other functions
-    cout << vec2.size(); // No of elements in vec2 = 6
-
-    vec2.pop_back(); // pops out last element
-
-    vec.swap(vec2); // Swap value of vec and vec2
-
-    vec.clear(); // Erases entire vector
-
-    vec.empty(); // True if vec is empty else False
+    cout << vec2.size(); 
 }
 
 int main(){
@@ -137,4 +129,5 @@ int main(){
     - means it has no fixed size like array
     - values aare stored contigously
     */
+    deletion();
 }
