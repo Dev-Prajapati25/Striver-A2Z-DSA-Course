@@ -39,7 +39,7 @@ void accesing_elements(){
 
     //* Iterators - They are similar to pointers
     // vec.begin() -> gives the memory address
-    // (*(vec)) -> gives the value stored at the address vec.begin()
+    // (*(vec.begin())) -> gives the value stored at the address vec.begin()
 
     vector<int>::iterator itr = vec.begin();  //Stores address of first element of vec 
 
@@ -65,7 +65,7 @@ void accesing_elements(){
     // for (vector<int>::iterator it2 = vec.begin(); it2 != vec.end(); it++){        
     // }
 
-    // auto - automatically assigns the datatype based on the value assigned
+    //? auto - automatically assigns the datatype based on the value assigned
     // auto b = 5;  b will be of datatype int  
     // can be used to easily creaate an iterator
 
@@ -81,7 +81,6 @@ void accesing_elements(){
         cout << item << " ";
     }
 }
-
 
 //! Deletion on vectors
 void deletion(){
@@ -103,7 +102,7 @@ void deletion(){
     // To delete 64 and 98
     // [start,end] - start-> starting of element,
     // end -> address of element right after the last element to delete
-    vec.erase(vec.begin()+1, vec.end() + 3);
+    vec.erase(vec.begin()+1, vec.end() - 2);
 
     //*Insert
     vector<int> vec2(2,34); // {34,34}
@@ -118,7 +117,15 @@ void deletion(){
     vec2.insert(vec2.begin(), copy.begin(), copy.end()); // {55, 55, 34, 99, 200, 34} 
 
     //*Some other functions
-    cout << vec2.size(); 
+    cout << vec2.size(); // No of elements in vec2 = 6
+
+    vec2.pop_back(); // pops out last element
+
+    vec.swap(vec2); // Swap value of vec and vec2
+
+    vec.clear(); // Erases entire vector
+
+    vec.empty(); // True if vec is empty else False
 }
 
 int main(){
@@ -127,7 +134,6 @@ int main(){
     ? VECTORS ?
     - it is a container which is dynamic in nature
     - means it has no fixed size like array
-    - values aare stored contigously
+    - values are stored contigously
     */
-    deletion();
 }
